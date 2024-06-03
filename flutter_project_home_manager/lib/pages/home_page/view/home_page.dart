@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding: EdgeInsets.all(width * 0.02),
-              child: HomePageBottomNavigationBar(
+              child: HomePageNotchBottomNavigationBar(
                 pageController: _pageController,
               ),
             ),
