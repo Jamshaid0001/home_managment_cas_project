@@ -1,5 +1,10 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project_home_manager/pages/groceries_page/view/grocreis_page.dart';
+import 'package:flutter_project_home_manager/pages/overview_page/view/overview_page.dart';
+import 'package:flutter_project_home_manager/pages/profile_page/view/profile_page.dart';
+import 'package:flutter_project_home_manager/pages/utilities_page/view/utilities_page.dart';
+import 'package:flutter_project_home_manager/pages/weather_page/view/weather_page.dart';
 
 class HomePageNotchBottomNavigationBar extends StatelessWidget {
   HomePageNotchBottomNavigationBar({super.key, required this.pageController});
@@ -14,8 +19,24 @@ class HomePageNotchBottomNavigationBar extends StatelessWidget {
   static const _fourthPageIndex = 3;
   static const _fifthPageIndex = 4;
 
+  Widget onItemChange() {
+    switch (currentIndex) {
+      case _firstPageIndex:
+        return const OverviewPage();
+      case _secondPageIndex:
+        return const GroceryPage();
+      case _thirdPageIndex:
+        return const WeatherPage();
+      case _fourthPageIndex:
+        return const UtilityPage();
+      default:
+        return const ProfilePage();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    onItemChange();
     return StatefulBuilder(
       builder: (context, setState) {
         return AnimatedNotchBottomBar(
